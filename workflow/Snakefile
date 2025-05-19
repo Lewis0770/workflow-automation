@@ -18,7 +18,7 @@ rule plot_data:
     output:
         "../results/graph.png"
     script:
-        "scripts/plot_data.py"
+        "../scripts/plot_data.py"
 
 rule write_readme:
     output:
