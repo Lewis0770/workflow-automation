@@ -1,0 +1,27 @@
+rule all:
+    input:
+        "../results/cleaned_data.csv",
+        "../results/graph.png",
+        "../results/README.md"
+
+rule clean_data:
+    input:
+        "../data/banking_data.csv"
+    output:
+        "../results/cleaned_data.csv"
+    script:
+        "scripts/clean_data.py"
+
+rule plot_data:
+    input:
+        "../results/cleaned_data.csv"
+    output:
+        "../results/graph.png"
+    script:
+        "scripts/plot_data.py"
+
+rule write_readme:
+    output:
+        "../results/README.md"
+    shell:
+        "echo 'This is an auto-generated README for the banking project.' > {output}"
