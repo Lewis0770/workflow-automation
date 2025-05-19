@@ -9,16 +9,16 @@ rule clean_data:
         "../data/banking_data.csv"
     output:
         "../results/cleaned_data.csv"
-    script:
-        "scripts/clean_data.py"
+    shell:
+        "python ../scripts/clean_data.py {input} {output}"
 
 rule plot_data:
     input:
         "../results/cleaned_data.csv"
     output:
         "../results/graph.png"
-    script:
-        "../scripts/plot_data.py"
+    shell:
+        "python ../scripts/plot_data.py {input} {output}"
 
 rule write_readme:
     output:

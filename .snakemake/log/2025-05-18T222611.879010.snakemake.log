@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in rule clean_data in file /home/brandon/banking_project/workflow/Snakefile, line 7:
+Missing input files for rule clean_data:
+    output: ../results/cleaned_data.csv
+    affected files:
+        ../data/banking_data.csv

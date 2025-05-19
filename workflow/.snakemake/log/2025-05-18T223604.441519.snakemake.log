@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+plot_data           1
+write_readme        1
+total               3
+
+Select jobs to execute...
+
+[Sun May 18 22:36:04 2025]
+rule plot_data:
+    input: ../results/cleaned_data.csv
+    output: ../results/graph.png
+    jobid: 2
+    reason: Missing output files: ../results/graph.png
+    resources: tmpdir=/tmp
+
+[Sun May 18 22:36:04 2025]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Sun May 18 22:36:04 2025]
+rule write_readme:
+    output: ../results/README.md
+    jobid: 3
+    reason: Missing output files: ../results/README.md
+    resources: tmpdir=/tmp
+
+[Sun May 18 22:36:04 2025]
+Finished job 3.
+2 of 3 steps (67%) done
+Select jobs to execute...
+
+[Sun May 18 22:36:04 2025]
+localrule all:
+    input: ../results/cleaned_data.csv, ../results/graph.png, ../results/README.md
+    jobid: 0
+    reason: Input files updated by another job: ../results/graph.png, ../results/README.md
+    resources: tmpdir=/tmp
+
+[Sun May 18 22:36:04 2025]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2025-05-18T223604.441519.snakemake.log

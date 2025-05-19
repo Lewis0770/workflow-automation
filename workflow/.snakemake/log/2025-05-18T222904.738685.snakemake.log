@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+clean_data          1
+plot_data           1
+write_readme        1
+total               4
+
+Select jobs to execute...
+
+[Sun May 18 22:29:04 2025]
+rule clean_data:
+    input: ../data/banking_data.csv
+    output: ../results/cleaned_data.csv
+    jobid: 1
+    reason: Missing output files: ../results/cleaned_data.csv
+    resources: tmpdir=/tmp
+
+[Sun May 18 22:29:04 2025]
+Error in rule clean_data:
+    jobid: 1
+    input: ../data/banking_data.csv
+    output: ../results/cleaned_data.csv
+    shell:
+        python ../scripts/clean_data.py ../data/banking_data.csv ../results/cleaned_data.csv
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-05-18T222904.738685.snakemake.log

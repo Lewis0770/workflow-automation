@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+plot_data           1
+write_readme        1
+total               3
+
+Select jobs to execute...
+
+[Sun May 18 22:33:25 2025]
+rule plot_data:
+    input: ../results/cleaned_data.csv
+    output: ../results/graph.png
+    jobid: 2
+    reason: Missing output files: ../results/graph.png
+    resources: tmpdir=/tmp
+
+[Sun May 18 22:33:26 2025]
+Error in rule plot_data:
+    jobid: 2
+    input: ../results/cleaned_data.csv
+    output: ../results/graph.png
+
+RuleException:
+CalledProcessError in file /home/brandon/banking_project/workflow/Snakefile, line 21:
+Command 'set -euo pipefail;  /home/brandon/miniconda3/envs/snakemake_env/bin/python3.10 /home/brandon/banking_project/workflow/.snakemake/scripts/tmpi0o93fok.plot_data.py' returned non-zero exit status 1.
+  File "/home/brandon/banking_project/workflow/Snakefile", line 21, in __rule_plot_data
+  File "/home/brandon/miniconda3/envs/snakemake_env/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-05-18T223325.868169.snakemake.log
